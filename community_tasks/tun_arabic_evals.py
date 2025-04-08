@@ -77,7 +77,7 @@ class CustomTUNArabicMMLUTask(LightevalTaskConfig):
             name=name,
             hf_subset=hf_subset,
             prompt_function=mmlu_tun_arabic,
-            hf_repo="wghezaiel/MMLU_tunisian",
+            hf_repo="linagora/TunisianMMLU",
             metric=[Metrics.loglikelihood_acc_norm],
             hf_avail_splits=["test"],
             evaluation_splits=["test"],
@@ -90,10 +90,10 @@ class CustomTUNArabicMMLUTask(LightevalTaskConfig):
             version=0,
         )
 
-ARABIC_TUN_MMLU_TASKS = [
-    CustomTUNArabicMMLUTask(name=f"MMLU_tunisian:{subset}", hf_subset=subset) for subset in ARABIC_TUN_MMLU_SUBSETS
+TASKS_TABLE = [
+    CustomTUNArabicMMLUTask(name=f"TunisianMMLU:{subset}", hf_subset=subset) for subset in ARABIC_TUN_MMLU_SUBSETS
 ]
 
 if __name__ == "__main__":
-    print(t.name for t in ARABIC_TUN_MMLU_TASKS)
+    print(t.name for t in TASKS_TABLE)
    
